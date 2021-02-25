@@ -10,7 +10,7 @@ const bodyParser = express.json()
 
 const knexInstance = knex({
     client: 'pg',
-    connection: process.env.DB_URL
+    connection: process.env.DATABASE_URL
 })
 
 function authenticateToken(req, res, next) {
