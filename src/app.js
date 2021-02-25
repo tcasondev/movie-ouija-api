@@ -10,8 +10,8 @@ const knex = require('knex')
 const jwt = require('jsonwebtoken')
 
 var corsOptions = {
-    origin: 'https://movie-ouija.vercel.app',
-    optionsSuccessStatus: 200 
+    // origin: 'https://movie-ouija.vercel.app',
+    // optionsSuccessStatus: 200 
   }
 
 const knexInstance = knex({
@@ -51,6 +51,7 @@ app.use(function errorHandler(error, req, res, next){
     } else {console.error(error)
         repsonse = {message: error.message, error}
     }
+    console.log(error)
     res.status(500).json(response)
 })
 
