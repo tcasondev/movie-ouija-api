@@ -9,6 +9,11 @@ const movieRouter = require('./movie/movie-router')
 const knex = require('knex')
 const jwt = require('jsonwebtoken')
 
+var corsOptions = {
+    origin: 'https://movie-ouija.vercel.app/',
+    optionsSuccessStatus: 200 
+  }
+
 const knexInstance = knex({
     client: 'pg',
     connection: process.env.DATABASE_URL
@@ -28,7 +33,7 @@ const morganOption = (NODE_ENV === 'production')
 
 app.use(morgan(morganOption))
 app.use(helmet())
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.use(userRouter)
 app.use(movieRouter)
