@@ -51,6 +51,7 @@ function authenticateToken(req, res, next) {
 
 movieRouter
 .route('/movies/add')
+//Add new movie object to movies if not exists then add relation to usermovies if not exists.
 .post(bodyParser, authenticateToken, async (req, res) => {
     try {
         const movie = {title: req.body.title, genre: req.body.genre}
@@ -93,6 +94,7 @@ movieRouter
 
 movieRouter
 .route('/movies')
+//Return array of movies associated with user
 .get(bodyParser, authenticateToken, async (req, res) => {
     knexInstance('movies')
     .join('usermovies', 'usermovies.movie_id', '=', 'movies.movie_id')
@@ -105,6 +107,7 @@ movieRouter
 
 movieRouter
 .route('/movies/delete')
+//Delete relation from usermovies.
 .delete(bodyParser, authenticateToken, async (req, res) => {
     console.log('user:', req.user, 'body:', req.body)
     knexInstance('usermovies')

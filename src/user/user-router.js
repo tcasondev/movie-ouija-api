@@ -29,15 +29,7 @@ next()
 
 userRouter
 .route('/user/create')
-.get((req, res) => {
-    knexInstance('users').select('*')
-    .then(result => {
-        res.send(result)
-    }).catch(
-        err => console.log(err.detail)
-    )
-})
-
+//Create a new user object
 .post(bodyParser, async (req, res) =>{
     try {
         const salt = await bcrypt.genSalt()
@@ -64,6 +56,7 @@ userRouter
 
 userRouter
 .route('/user/login')
+//Pass credentials from front to back and return JWT.
 .post(bodyParser, async (req, res) => {
 const getPass = async () => {
     return knexInstance('users').select('user_password', 'user_id')
