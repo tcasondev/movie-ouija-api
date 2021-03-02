@@ -1,9 +1,7 @@
 require('dotenv').config
 const express = require('express')
-const { uuid } = require('uuidv4')
 const knex = require('knex')
 const jwt = require('jsonwebtoken')
-
 const movieRouter = express.Router()
 const bodyParser = express.json()
 
