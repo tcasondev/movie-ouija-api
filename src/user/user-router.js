@@ -65,7 +65,6 @@ const getPass = async () => {
         .first()
     }
 const userPass = await getPass();
-console.log(userPass)
 const username = req.body.email;
 const user = {name: username, user_id: userPass.user_id};    
 const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN)

@@ -41,7 +41,6 @@ function authenticateToken(req, res, next) {
     if (token === null) {
         res.sendStatus(401)
     }
-    console.log(token)
     jwt.verify(token, process.env.ACCESS_TOKEN, (err, user) => {
     if (err) return res.sendStatus(403);
     req.user = user;
@@ -56,7 +55,7 @@ movieRouter
     try {
         const movie = {title: req.body.title, genre: req.body.genre}
         
-        console.log(req.user.name)
+        
         
         knexInstance('movies').select('*')
         .from("movies")
@@ -109,7 +108,6 @@ movieRouter
 .route('/movies/delete')
 //Delete relation from usermovies.
 .delete(bodyParser, authenticateToken, async (req, res) => {
-    console.log('user:', req.user, 'body:', req.body)
     knexInstance('usermovies')
     .where('user_id', req.user.user_id)
     .andWhere('movie_id', req.body.id)
