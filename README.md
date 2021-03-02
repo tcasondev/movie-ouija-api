@@ -18,6 +18,9 @@ This app allows the user to keep a list of movies to which they have access and 
 # Future updates: 
 In the future I hope to implement a fun greeting to set the mood for the user as well as improved animations to add to the Ouija experience. I would also like to incorporate more powerful filters such as "Starring: " or "Subgenre: ". 
 
+# Link:
+https://movie-ouija.vercel.app/ouija
+
 ![landing](https://user-images.githubusercontent.com/72135935/109630816-f5e13a80-7b0a-11eb-9261-637cceb6cfbc.PNG)
 
 ![Login](https://user-images.githubusercontent.com/72135935/109630829-fa0d5800-7b0a-11eb-8831-902760ae34bc.PNG)
